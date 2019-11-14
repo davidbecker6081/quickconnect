@@ -1,0 +1,31 @@
+{
+  "name": "Quick-Connect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node server.js",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --exit"
+  },
+  "keywords": [],
+  "author": "David Becker <david@beckersite.com> (https://david-a-becker.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.20.1",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.16.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^1.19.4"
+  }
+}
