@@ -7,7 +7,8 @@
     "build": "babel lib -d dist",
     "serve": "nodemon dist/server.js",
     "start": "npm run build && npm run serve",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --exit"
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --exit",
+    "migrate": "knex migrate:latest --env test && knex migrate:latest"
   },
   "keywords": [],
   "author": "David Becker <david@beckersite.com> (https://david-a-becker.com/)",
