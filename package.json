@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server.js",
+    "build": "babel lib -d dist",
+    "serve": "nodemon dist/server.js",
+    "start": "npm run build && npm run serve",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --exit"
   },
   "keywords": [],
@@ -15,9 +17,11 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.20.1",
+    "path": "^0.12.7",
     "pg": "^7.12.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
     "@babel/node": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
