@@ -29,7 +29,7 @@
 | message             |
 | sender_id           |
 | recipient_id        |
-| timestamp           |
+| created_at          |
 
 #### Available Endpoints
 API_VERSION_PREFIX: `v1`
