@@ -7,7 +7,7 @@
     "build": "babel lib -d dist",
     "serve": "nodemon -r dotenv/config dist/server.js",
     "start": "npm run build && npm run serve",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --exit",
+    "test": "mocha --require @babel/register 'test/**/*spec.js' --exit",
     "migrate": "knex migrate:latest --cwd ./lib --env test && knex migrate:latest --cwd ./lib"
   },
   "keywords": [],
@@ -32,6 +32,9 @@
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
     "mocha": "^6.2.2",
-    "nodemon": "^1.19.4"
+    "mocha-webpack": "^1.1.0",
+    "nodemon": "^1.19.4",
+    "webpack": "^4.41.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

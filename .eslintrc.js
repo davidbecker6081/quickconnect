@@ -17,6 +17,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "no-undef": [0],
         "indent": [
             "error",
             "tab"
