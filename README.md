@@ -30,3 +30,8 @@
 | sender_id           |
 | recipient_id        |
 | timestamp           |
+
+#### Available Endpoints
+API_VERSION_PREFIX: `v1`
+
+- **[`GET` messages/:recipient_id/:sender_id](https://github.com/davidbecker6081/quickconnect/blob/master/endpoint_documentation/GET_messages.md)**

@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
 	return Promise.all([
 		knex.schema.createTable('messages', table => {
@@ -6,7 +5,7 @@ exports.up = function(knex) {
 			table.string('message');
 			table.integer('sender_id');
 			table.integer('recipient_id');
-			table.timestamps(true, true);
+			table.timestamp('created_at').defaultTo(knex.fn.now());
 		})
 	]);
 };

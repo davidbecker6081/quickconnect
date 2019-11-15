@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "build": "babel lib -d dist",
-    "serve": "nodemon dist/server.js",
+    "serve": "nodemon -r dotenv/config dist/server.js",
     "start": "npm run build && npm run serve",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --exit",
-    "migrate": "knex migrate:latest --env test && knex migrate:latest"
+    "migrate": "knex migrate:latest --cwd ./lib --env test && knex migrate:latest --cwd ./lib"
   },
   "keywords": [],
   "author": "David Becker <david@beckersite.com> (https://david-a-becker.com/)",
@@ -28,6 +28,7 @@
     "@babel/preset-env": "^7.7.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
     "mocha": "^6.2.2",
