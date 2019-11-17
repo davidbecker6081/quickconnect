@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { aggregateMessages } from '../../lib/utils/aggregateMessages';
+import { Message } from '../../lib/DTO/Message';
 
 describe('aggregateMessages', () => {
 	const messages = [
@@ -11,6 +12,7 @@ describe('aggregateMessages', () => {
 	it('Should aggregate the messages in a format readable for the client', () => {
 		const aggregatedMessages = aggregateMessages(messages);
 		expect(aggregatedMessages.length).to.equal(3);
+		expect(aggregatedMessages[0]).to.be.an.instanceOf(Message);
 		expect(aggregatedMessages[0]).to.have.property('message');
 		expect(aggregatedMessages[0]).to.have.property('created_at');
 	});
