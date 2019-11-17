@@ -1,14 +1,14 @@
 var path = require('path');
-var dotEnvPath = path.resolve('../.env');
+var dotEnvPath = path.resolve('../../.env');
 require('dotenv').config({ path: dotEnvPath});
 
 import chai from 'chai';
 import { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import request from 'supertest';
-import server from '../lib/server';
+import server from '../../lib/server';
 const environment = process.env.NODE_ENV_TEST || 'test';
-const configuration = require('../lib/knexfile')[environment];
+const configuration = require('../../lib/knexfile')[environment];
 const database = require('knex')(configuration);
 
 chai.use(chaiHttp);
