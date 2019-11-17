@@ -7,16 +7,19 @@
     "build": "babel lib -d dist",
     "serve": "nodemon -r dotenv/config dist/server.js",
     "start": "npm run build && npm run serve",
-    "test": "mocha --require @babel/register 'test/**/*spec.js' --exit",
+    "test": "API_VERSION=v1 mocha --require @babel/register 'test/**/*spec.js' --exit",
     "migrate": "knex migrate:latest --cwd ./lib --env test && knex migrate:latest --cwd ./lib"
   },
   "keywords": [],
   "author": "David Becker <david@beckersite.com> (https://david-a-becker.com/)",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "knex": "^0.20.1",
     "path": "^0.12.7",
     "pg": "^7.12.1"
@@ -32,9 +35,7 @@
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
     "mocha": "^6.2.2",
-    "mocha-webpack": "^1.1.0",
     "nodemon": "^1.19.4",
-    "webpack": "^4.41.2",
-    "webpack-node-externals": "^1.7.2"
+    "supertest": "^4.0.2"
   }
 }
