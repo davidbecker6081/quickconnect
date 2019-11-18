@@ -1,5 +1,5 @@
 const audio = document.querySelector('audio');
-document.addEventListener('onload', () => {
+window.addEventListener('load', () => {
   console.log('play')
   audio.play();
 });
