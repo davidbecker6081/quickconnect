@@ -11,6 +11,9 @@
   - `\q`
 5. Start local database server
 
+## Live Example
+Try out some of the endpoints here: https://quick-connect-db.herokuapp.com/
+
 
 ## Available Commands
 1. `knex migrate:make initial`
