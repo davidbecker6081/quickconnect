@@ -1,0 +1,31 @@
+*, h1, h2, h3, h4, h5, h6, p, section {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  padding: 100px;
+}
+
+section {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 10vw;
+}
+
+.title {
+  color: white;
+  font-family: 'Exo', sans-serif;
+  font-size: 50px;
+  line-height: 0.8;
+}
+
+.sub-text {
+  color: #ef2d0c;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 0.8;
+  padding: 0 40px 0 50px;
+}
