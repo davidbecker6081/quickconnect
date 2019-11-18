@@ -1,31 +1,40 @@
-## Installation Steps
-1. Download PostgresQL
-2. Open PostgresQL
-3. Create new local database
-  - `psql`
-  - `CREATE DATABASE quickconnect;`
-  - `\q`
-4. Create new local database
-  - `psql`
-  - `CREATE DATABASE quickconnect_test;`
-  - `\q`
-5. Start local database server
+# Quick Connect
+Quick Connect is a simple, public chat API that allows users to send and receive messages. Built for Guild Education's code challenge. You can check out a live version here: https://quick-connect-db.herokuapp.com/
 
-## Live Example
-Try out some of the endpoints here: https://quick-connect-db.herokuapp.com/public/v1/health-check
+## Setup
+##### Clone repo
+  - ```git clone```
+
+##### NPM install
+  - ```npm install```
+
+##### Create a quick connect database using PostgresQL
+  - ```psql```
+  - ```CREATE DATABASE quickconnect;```
+
+##### Create a quick connect test database using PostgresQL
+  - ```psql```
+  - ```CREATE DATABASE quickconnect_test;```
+
+##### Migrate table schema using knex
+  - ```npm run migrate```
+
+##### Seed databases
+  - ```npm run seed:dev```
+  - ```npm run seed:test```
+  - If this doesn't work, please `cd` into `lib` directory, and then run `knex seed:run` and `knex seed:run --env test`-
+
+##### Run tests
+  - ```npm run test```
+
+##### Build/Start server
+  - ```npm run start```
+  - Server at: http://localhost:8080
 
 
-## Available Commands
-1. `knex migrate:make initial`
-2. `knex migrate:latest`
-3. `knex migrate:latest --env test`
-4. `knex seed:make {name}`
-5. `knex seed:run`
+-------------------------
 
-## Available Scripts
-
-
-## Tables Available
+## Table Available From Knex Migration
 | **Messages**        |
 | :------------------:|
 | id                  |
@@ -40,3 +49,7 @@ API_VERSION_PREFIX: `v1`
 - **[`GET` messages/:recipient_id](https://github.com/davidbecker6081/quickconnect/blob/master/endpoint_documentation/GET_allMessages.md)**
 - **[`GET` messages/:recipient_id/:sender_id](https://github.com/davidbecker6081/quickconnect/blob/master/endpoint_documentation/GET_messages.md)**
 - **[`POST` /messages](https://github.com/davidbecker6081/quickconnect/blob/master/endpoint_documentation/POST_message.md)**
+
+
+#### Design/Additional Considerations
+- **[Design and Additional Considerations](https://github.com/davidbecker6081/quickconnect/blob/master/Notes.md)**
