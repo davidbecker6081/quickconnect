@@ -8,7 +8,9 @@
     "serve": "nodemon -r dotenv/config dist/server.js",
     "start": "npm run build && npm run serve",
     "test": "NODE_ENV=test API_VERSION=v1 mocha --require @babel/register 'test/**/*spec.js' --exit",
-    "migrate": "knex migrate:latest --cwd ./lib --env test && knex migrate:latest --cwd ./lib"
+    "migrate": "knex migrate:latest --cwd ./lib --env test && knex migrate:latest --cwd ./lib",
+    "seed:dev": "knex seed:run --cwd ./lib",
+    "seed:test": "knex seed:run --cwd ./lib --env test"
   },
   "keywords": [],
   "author": "David Becker <david@beckersite.com> (https://david-a-becker.com/)",
@@ -19,7 +21,6 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-async-errors": "^3.1.1",
     "knex": "^0.20.1",
     "moment": "^2.24.0",
     "path": "^0.12.7",

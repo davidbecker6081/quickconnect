@@ -1,29 +1,29 @@
 # Messages Endpoint
 
 ```
-GET messages/:recipient_id/:sender_id
+GET messages/:recipient_id
 ```
 
 ## Description
 
-Returns the last 30 days of messages for a recipient from one sender or first 100 messages retrieved from a sender to a recipient if limit is specified.
+Returns the last 30 days of messages for a recipient from ALL senders or first 100 messages retrieved for a recipient if limit is specified.
 ***
 
 ## Requires authentication
 
-No authentication required for **GET messages/:recipient_id/:sender_id** endpoints.
+No authentication required for **GET messages/:recipient_id** endpoints.
 
 ## Query Parameters
 
 This endpoint can define if a limit of 100 messages is wanted.
 ```
-/messages/:recipient_id/:sender_id/?limit=true
+/messages/:recipient_id/?limit=true
 ```
 ***
 
 ## Errors
 
-- **404 Not Found** — The recipient_id or sender_id parameter entered did not match any ids in the records.
+- **404 Not Found** — The recipient_id parameter entered did not match any ids in the records.
 - **400 Bad Request** — Invalid request entry.
 
 ***
@@ -41,7 +41,7 @@ One object with the following keys and values:
 **Request**
 
 ```
-https://quickconnect-db.herokuapp.com/v1/messages/12345/54321
+https://quickconnect-db.herokuapp.com/v1/messages/12345
 ```
 **Return shortened for example purpose**
 

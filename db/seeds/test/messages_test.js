@@ -5,7 +5,7 @@ exports.seed = function(knex) {
 	return knex('messages').del()
 		.then(function () {
 			// Inserts seed entries
-			return knex('messages').insert(generateMessages(1000, 12345, 54321));
+			return knex('messages').insert([...generateMessages(1000, 12345, 54321), ...generateMessages(1000, 23456, 65432)]);
 		})
 		.then(() => console.log('Seeding Complete'))
 		.catch(e => console.log(e));
