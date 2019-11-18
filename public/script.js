@@ -1,5 +1,5 @@
 const audio = document.querySelector('audio');
-
+audio.play();
 const healthCheck = document.querySelector('.health-check');
 
 const getAllMessages = document.querySelector('.get-all-messages');
@@ -58,7 +58,6 @@ postMessage.addEventListener('click', () => {
 	}).then(res => {
 		return res.json();
 	}).then(res => {
-		console.log(res);
 
 		const jsonResponse = document.createElement('textarea');
 
