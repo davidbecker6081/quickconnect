@@ -8,6 +8,16 @@ Quick Connect is a simple, public chat API that allows users to send and receive
 ##### NPM install
   - ```npm install```
 
+##### Make .env
+  - Make file at root level
+  - Add in:
+    ```
+    API_VERSION=v1
+    PORT=8080
+    NODE_ENV=development
+    NODE_ENV_TEST=test
+    ```
+
 ##### Create a quick connect database using PostgresQL
   - ```psql```
   - ```CREATE DATABASE quickconnect;```
