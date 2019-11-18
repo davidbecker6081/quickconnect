@@ -1,10 +1,8 @@
 const audio = document.querySelector('audio');
 window.addEventListener('load', () => {
-  console.log('play')
-  console.log(audio)
   audio.play();
 });
-const healthCheck = document.querySelector('.health-check');
+	nst healthCheck = document.querySelector('.health-check');
 
 const getAllMessages = document.querySelector('.get-all-messages');
 const getAllMessagesLimit = document.querySelector('.get-all-messages-limit');
@@ -13,16 +11,6 @@ const getMessages = document.querySelector('.get-messages');
 const getMessagesLimit = document.querySelector('.get-messages-limit');
 
 const postMessage = document.querySelector('.post-message');
-
-audio.currentTime = 3;
-audio.addEventListener('ended', () => {
-	if (audio.src === '/assets/Watermelon Man-[AudioTrimmer.com].mp3') {
-		audio.src = '/assets/james-brown-instrumental.mp3';
-	} else {
-		audio.src = '/assets/Watermelon Man-[AudioTrimmer.com].mp3';
-	}
-	audio.play();
-});
 
 healthCheck.addEventListener('click', () => {
 	const win = window.open('/public/v1/health-check');
