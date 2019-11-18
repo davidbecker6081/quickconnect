@@ -1,6 +1,7 @@
 const audio = document.querySelector('audio');
 window.addEventListener('load', () => {
   audio.play();
+  audio.muted = false;
   audio.currentTime = 3;
 });
 const healthCheck = document.querySelector('.health-check');
