@@ -1,6 +1,7 @@
 const audio = document.querySelector('audio');
 window.addEventListener('load', () => {
   console.log('play')
+  console.log(audio)
   audio.play();
 });
 const healthCheck = document.querySelector('.health-check');
