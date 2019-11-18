@@ -1,5 +1,8 @@
 const audio = document.querySelector('audio');
-audio.play();
+document.addEventListener('onload', () => {
+  console.log('play')
+  audio.play();
+});
 const healthCheck = document.querySelector('.health-check');
 
 const getAllMessages = document.querySelector('.get-all-messages');
