@@ -36,3 +36,4 @@ API_VERSION_PREFIX: `v1`
 
 - **[`GET` messages/:recipient_id](https://github.com/davidbecker6081/quickconnect/blob/master/endpoint_documentation/GET_allMessages.md)**
 - **[`GET` messages/:recipient_id/:sender_id](https://github.com/davidbecker6081/quickconnect/blob/master/endpoint_documentation/GET_messages.md)**
+- **[`POST` /messages](https://github.com/davidbecker6081/quickconnect/blob/master/endpoint_documentation/POST_message.md)**
