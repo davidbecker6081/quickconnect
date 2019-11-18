@@ -1,9 +1,24 @@
-const audio = document.querySelector('audio');
-window.addEventListener('load', () => {
+const enterBtn = document.querySelector('.enter-btn');
+
+enterBtn.addEventListener('click', () => {
+	const enterScreen = document.querySelector('.enter-screen');
+	const audio = document.querySelector('audio');
+	const title = document.querySelector('.title');
+	const subText = document.querySelector('.sub-text');
+	const endpoints = document.querySelector('.endpoints');
+	const endpointTitle = document.querySelector('h3');
+
 	audio.muted = false;
 	audio.play();
 	audio.currentTime = 3;
+
+  document.body.removeChild(enterScreen);
+	title.style.animation = 'type 3s steps(40,end) forwards';
+	endpointTitle.style.animation = 'type 3s steps(40,end) forwards';
+	subText.style.animation = 'fade-in 4s';
+	endpoints.style.animation = 'fade-in 4s';
 });
+
 const healthCheck = document.querySelector('.health-check');
 
 const getAllMessages = document.querySelector('.get-all-messages');
@@ -54,19 +69,18 @@ postMessage.addEventListener('click', () => {
 	}).then(res => {
 
 		const jsonResponse = document.createElement('textarea');
-
-		jsonResponse.className = 'post-response';
 		const textNode = document.createTextNode(`${JSON.stringify(res, null, 4)}`);
+		jsonResponse.className = 'post-response';
 		jsonResponse.appendChild(textNode);
+		jsonResponse.readonly = true;
+		document.body.appendChild(jsonResponse);
 
 		const closeBtn = document.createElement('button');
-		closeBtn.className = 'close';
 		const btnText = document.createTextNode('X');
+		closeBtn.className = 'close';
 		closeBtn.appendChild(btnText);
 		document.body.appendChild(closeBtn);
-		jsonResponse.readonly = true;
 
-		document.body.appendChild(jsonResponse);
 
 		const close = document.querySelector('.close');
 		const postResponse = document.querySelector('.post-response');
@@ -74,6 +88,5 @@ postMessage.addEventListener('click', () => {
 			document.body.removeChild(postResponse);
 			document.body.removeChild(close);
 		});
-
 	});
 });
