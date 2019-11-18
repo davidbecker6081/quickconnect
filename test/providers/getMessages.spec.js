@@ -24,7 +24,6 @@ describe('GET - messages', () => {
 
 		it('Should contain the correct response body', () => {
 			const { body } = response;
-			expect(body).to.have.property('sender_id');
 			expect(body).to.have.property('recipient_id');
 			expect(body).to.have.property('messages');
 
@@ -40,6 +39,15 @@ describe('GET - messages', () => {
 			expect(messages[0].message).to.be.a('string');
 			expect(messages[0]).to.have.property('created_at');
 			expect(messages[0].created_at).to.be.a('string');
+			expect(messages[0]).to.have.property('sender_id');
+			expect(messages[0].created_at).to.be.a('string');
+		});
+
+		it('Should only retrieve messages from one sender to one recipient', () => {
+			const { messages } = response.body;
+			for (let i = 0; i < messages.length; i++) {
+				expect(messages[i].sender_id).to.equal(sender_id);
+			}
 		});
 
 		it('Should have a thirty day limit if no limit is specified', () => {
