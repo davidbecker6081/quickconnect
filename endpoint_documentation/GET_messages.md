@@ -6,16 +6,19 @@ GET messages/:recipient_id/:sender_id
 
 ## Description
 
-Returns first 100 messages from a sender to a recipient or the last 30 days of messages if messages count does not exceed 100.
+Returns the last 30 days of messages or first 100 messages retrieved from a sender to a recipient if limit is specified.
 ***
 
 ## Requires authentication
 
 No authentication required for **GET messages/:recipient_id/:sender_id** endpoints.
 
-## Parameters
+## Query Parameters
 
-This endpoint does not take any query parameters.
+This endpoint can define if a limit of 100 messages is wanted.
+```
+/messages/:recipient_id/:sender_id/?limit=true
+```
 ***
 
 ## Errors
@@ -29,9 +32,9 @@ This endpoint does not take any query parameters.
 
 One object with the following keys and values:
 
-- **sender_id** - City where brewery is located.
-- **recipient_id** - Year brewery was founded.
-- **messages** - An array of message objects containing message and timestamp (in UTC).
+- **sender_id** - ID of sender.
+- **recipient_id** - ID of recipient.
+- **messages** - An array of message objects containing message, timestamp (in UTC), and id of sender.
 
 ***
 
@@ -40,16 +43,15 @@ One object with the following keys and values:
 **Request**
 
 ```
-https://quickconnect-db.herokuapp.com/v1/messages/
+https://quickconnect-db.herokuapp.com/v1/messages/12345/54321
 ```
 **Return shortened for example purpose**
 
 ```json
 {
-	"sender_id": "00001",
 	"recipient_id": "00002",
 	"messages": [
-    { "message": "Hey, how ya doing?", "created_at": "Thu Nov 14 2019 17:20:56 GMT-0700" }
+    { "message": "Hey, how ya doing?", "created_at": "Thu Nov 14 2019 17:20:56 GMT-0700", "sender_id": "00001" }
   ]
 }
 ```
