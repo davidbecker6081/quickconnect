@@ -12,13 +12,13 @@ describe('POST - message - one sender to one recipient', () => {
 	const sender_id = 54321;
 	const message = 'heres a message';
 
-	describe('POST - success /public/v1/messages', () => {
+	describe('POST - success /public/v1/message', () => {
 		let response;
 		let postMessage;
 
 		before(async () => {
 			postMessage = new PostMessage(message, sender_id, recipient_id);
-			response = await request(server).post('/public/v1/messages').send(postMessage);
+			response = await request(server).post('/public/v1/message').send(postMessage);
 		});
 
 		it('Should have status of 200', () => {
@@ -49,14 +49,14 @@ describe('POST - message - one sender to one recipient', () => {
 		});
 	});
 
-	describe('POST - error /public/v1/messages', () => {
+	describe('POST - error /public/v1/message', () => {
 		describe('Missing required body values', () => {
 			let response;
 			let invalidPostBody;
 
 			before(async () => {
 				invalidPostBody = { 'notTheRightKey': 1, 'anotherWrongKey': 2 };
-				response = await request(server).post('/public/v1/messages').send(invalidPostBody);
+				response = await request(server).post('/public/v1/message').send(invalidPostBody);
 			});
 
 			it('Should have status of 400', () => {

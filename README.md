@@ -12,7 +12,7 @@
 5. Start local database server
 
 ## Live Example
-Try out some of the endpoints here: https://quick-connect-db.herokuapp.com/
+Try out some of the endpoints here: https://quick-connect-db.herokuapp.com/public/v1/health-check
 
 
 ## Available Commands

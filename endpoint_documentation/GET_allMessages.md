@@ -41,7 +41,7 @@ One object with the following keys and values:
 **Request**
 
 ```
-https://quickconnect-db.herokuapp.com/v1/messages/12345
+https://quick-connect-db.herokuapp.com/public/v1/messages/12345
 ```
 **Return shortened for example purpose**
 

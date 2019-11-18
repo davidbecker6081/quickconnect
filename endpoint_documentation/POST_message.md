@@ -1,7 +1,7 @@
 # Messages Endpoint
 
 ```
-POST /messages
+POST /message
 ```
 
 ## Description
@@ -11,7 +11,7 @@ Post a message from a sender to a recipient.
 
 ## Requires authentication
 
-No authentication required for **POST /messages** endpoints.
+No authentication required for **POST /message** endpoints.
 
 ## Query Parameters
 
@@ -41,7 +41,7 @@ One object with the following keys and values:
 **Request**
 
 ```
-https://quickconnect-db.herokuapp.com/v1/messages
+https://quick-connect-db.herokuapp.com/public/v1/message
 
 ```
 **Request Body**
