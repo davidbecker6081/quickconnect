@@ -7,7 +7,7 @@ import server from '../../lib/server';
 
 chai.use(chaiHttp);
 
-describe('GET - messages', () => {
+describe('GET - messages - one sender to one recipient', () => {
 	const recipient_id = 12345;
 	const sender_id = 54321;
 
