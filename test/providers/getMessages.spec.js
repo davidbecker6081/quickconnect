@@ -1,32 +1,15 @@
-var path = require('path');
-var dotEnvPath = path.resolve('../../.env');
-require('dotenv').config({ path: dotEnvPath});
-
 import chai from 'chai';
+import moment from 'moment';
 import { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import request from 'supertest';
 import server from '../../lib/server';
-const environment = process.env.NODE_ENV_TEST || 'test';
-const configuration = require('../../lib/knexfile')[environment];
-const database = require('knex')(configuration);
 
 chai.use(chaiHttp);
 
 describe('GET - messages', () => {
 	const recipient_id = 12345;
 	const sender_id = 54321;
-
-	beforeEach(async () => {
-		await database.migrate
-			.rollback()
-			.then(() => database.migrate.latest())
-			.catch(error => error);
-
-		await database.seed
-			.run()
-			.catch(error => error);
-	});
 
 	describe('GET - success /public/v1/messages/:recipient_id/:sender_id', () => {
 		let response;
@@ -53,13 +36,28 @@ describe('GET - messages', () => {
 			expect(parseInt(recipient_id)).to.be.a('number');
 
 			expect(messages).to.be.an('array');
-			expect(messages.length).to.equal(1);
 			expect(messages[0]).to.have.property('message');
 			expect(messages[0].message).to.be.a('string');
 			expect(messages[0]).to.have.property('created_at');
 			expect(messages[0].created_at).to.be.a('string');
 		});
 
+		it('Should have a thirty day limit if no limit is specified', () => {
+			let thirtyDaysPast = new Date(Date.now());
+			thirtyDaysPast.setDate(thirtyDaysPast.getDate() - 30);
+			const { messages } = response.body;
+
+			for (let i = 0; i < messages.length; i++) {
+				let dateIsLessThanThirty = moment(messages[i].created_at) >= moment(thirtyDaysPast);
+				expect(dateIsLessThanThirty).to.be.true;
+			}
+		});
+
+		it('Should limit response results to 100 if specified', async () => {
+			response = await request(server).get(`/public/v1/messages/${recipient_id}/${sender_id}/?limit=true`);
+			const { messages } = response.body;
+			expect(messages.length).to.equal(100);
+		});
 	});
 
 	describe('GET - error /public/v1/messages/:recipient_id/:sender_id', () => {
