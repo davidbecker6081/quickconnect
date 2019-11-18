@@ -1,8 +1,9 @@
 const audio = document.querySelector('audio');
 window.addEventListener('load', () => {
   audio.play();
+  audio.currentTime = 3;
 });
-	nst healthCheck = document.querySelector('.health-check');
+const healthCheck = document.querySelector('.health-check');
 
 const getAllMessages = document.querySelector('.get-all-messages');
 const getAllMessagesLimit = document.querySelector('.get-all-messages-limit');
