@@ -7,10 +7,24 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
+    <header>
+      <h1 class="title">QUICK CONNECT</h1>
+      <p class="sub-text">Welcome! I've hosted a sample of the API here and seeded a database for you to hit.</p>
+    </header>
     <section>
-      <p class="title">QUICK CONNECT</p>
-      <p class="sub-text">Welcome! I've hosted a sample of the API here and seeded a database for you to hit</p>
+      <h3>Endpoints Available:</h3>
+
+      <p class="endpoints health-check">GET public/v1/health-check</p>
+
+      <p class="endpoints get-all-messages">GET public/v1/messages/:recipient_id</p>
+      <p class="endpoints get-all-messages-limit">GET public/v1/messages/:recipient_id/?limit=true</p>
+
+      <p class="endpoints get-messages-limit">GET public/v1/messages/:recipient_id/:sender_id</p>
+      <p class="endpoints get-messages">GET public/v1/messages/:recipient_id/:sender_id/?limit=true</p>
+
+      <p class="endpoints post-message">POST public/v1/messages</p>
     </section>
+
     <audio src="/assets/james-brown-instrumental.mp3" autoplay="true"></audio>
     <script src="./script.js" charset="utf-8"></script>
   </body>

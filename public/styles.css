@@ -1,18 +1,19 @@
-*, h1, h2, h3, h4, h5, h6, p, section {
+*, h1, h2, h3, h4, h5, h6, p, section, header {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
 }
 
 body {
-  padding: 100px;
+  padding: 50px 100px;
 }
 
-section {
+header, section {
   background-color: black;
   display: flex;
   flex-direction: column;
   padding: 10vw;
+  margin-bottom: 50px;
 }
 
 .title {
@@ -20,12 +21,116 @@ section {
   font-family: 'Exo', sans-serif;
   font-size: 50px;
   line-height: 0.8;
+  width: 100%;
+  animation: type 3s steps(40,end) forwards;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .sub-text {
+  text-align: left;
   color: #ef2d0c;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
-  line-height: 0.8;
+  line-height: 1;
   padding: 0 40px 0 50px;
+  opacity: 1;
+  animation: fade-in 4s;
+}
+
+section {
+  padding: 5vw;
+}
+
+h3 {
+  color: white;
+  font-family: 'Exo', sans-serif;
+  font-size: 20px;
+  line-height: 0.8;
+  width: 100%;
+  animation: type 4s steps(40,end) forwards;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.endpoints {
+  text-align: left;
+  color: #ef2d0c;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 0.8;
+  padding: 5px 40px 0 50px;
+  opacity: 1;
+  animation: fade-in 4s;
+}
+
+.endpoints:hover {
+  color: #ffffffcf;
+  cursor: pointer;
+}
+
+.post-response {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  padding: 30px;
+  position: absolute;
+  left: 5px;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: black;
+  z-index: 100;
+}
+
+.close {
+  font-family: 'Montserrat', sans-serif;
+  background: none;
+  border: none;
+  color: #ef2d0c;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  width: 100px;
+  padding: 10px 70px;
+  position: absolute;
+  top: 5vh;
+  left: 78vw;
+  z-index: 101;
+}
+
+.close:hover {
+  background-color: #ffffff17;
+  cursor: pointer;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  1%, 99%{
+    border-right: 1px solid #ef2d0c;
+  }
+  100%{
+    border-right: none;
+  }
 }
