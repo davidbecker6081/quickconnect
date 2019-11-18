@@ -8,15 +8,16 @@ module.exports = {
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
+            "experimentalObjectRestSpread": true
         },
+        "ecmaVersion": "2018",
         "sourceType": "module"
     },
     "plugins": [
         "react"
     ],
     "rules": {
+        "no-undef": [0],
         "indent": [
             "error",
             "tab"
