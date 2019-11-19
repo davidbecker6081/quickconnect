@@ -1,5 +1,5 @@
 # Quick Connect
-Quick Connect is a simple, public chat API that allows users to send and receive messages. Built for Guild Education's code challenge. You can check out a live version here: https://quick-connect-db.herokuapp.com/
+Quick Connect is a simple, public chat API that allows users to send and receive messages. Built for Guild Education's code challenge. You can check out a live version here: https://quick-connect-db.herokuapp.com/ (TURN THE SOUND ON!)
 
 ## Setup
 ##### Clone repo
